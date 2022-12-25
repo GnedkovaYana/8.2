@@ -4,7 +4,7 @@
     {
         public void BeginWork(BankAccount account)
         {
-            int balanceNull = account.Balance;
+            int balance0 = account.Balance;
             if (!account.CheckHistory())
                 Console.WriteLine("Данные некоректны");
             else

@@ -23,7 +23,7 @@
                 }
                 operations[i - 1] = new BankOperation(dateTime, moneyAmount, operationType);
             }
-            Sort(operations, new DateTimeComparer());
+            Sort(operations);
             return new BankAccount(balance, operations);
         }
 
@@ -40,7 +40,7 @@
             return dateTime;
         }
 
-        private static void Sort(Array array, DateTimeComparer comparer)
+        private static void Sort(Array array)
         {
             for (int i = array.Length - 1; i > 0; i--)
             {
@@ -48,7 +48,9 @@
                 {
                     object element1 = array.GetValue(j - 1);
                     object element2 = array.GetValue(j);
-                    if (comparer.Compare(element1, element2) < 0)
+                    BankOperation op1 = (BankOperation)element1;
+                    BankOperation op2 = (BankOperation)element2;
+                    if (op1.CompareTo(op2) < 0)
                     {
                         object temporary = array.GetValue(j);
                         array.SetValue(array.GetValue(j - 1), j);
