@@ -50,7 +50,7 @@
                     object element2 = array.GetValue(j);
                     BankOperation op1 = (BankOperation)element1;
                     BankOperation op2 = (BankOperation)element2;
-                    if (op1.CompareTo(op2) < 0)
+                    if (((IComparable)op1).CompareTo(op2) < 0)
                     {
                         object temporary = array.GetValue(j);
                         array.SetValue(array.GetValue(j - 1), j);

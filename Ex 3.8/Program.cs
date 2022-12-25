@@ -8,7 +8,16 @@
             FileReader fileReader = new();
             BankAccount account = fileReader.StructureData(userInput);
             Display display = new();
-            display.BeginWork(account);
+            try
+            {
+                display.BeginWork(account);
+            }
+            catch(Exception ex)
+            {
+                Console.ForegroundColor = ConsoleColor.DarkRed;
+                Console.WriteLine(ex.Message);
+                Console.ResetColor();
+            }
 
             Console.ReadKey();
         }

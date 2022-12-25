@@ -14,7 +14,7 @@
             OperationType = operationType;
         }
 
-        public int CompareTo(object x)
+        int IComparable.CompareTo(object x)
         {
             BankOperation a = (BankOperation)x;
             return DateTime.CompareTo(a.DateTime);

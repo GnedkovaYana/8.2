@@ -11,16 +11,14 @@
             {
                 Console.Write("Введите время ");
                 string time = Console.ReadLine();
-                DateTime dateTime = new DateTime();
                 if (time == "")
                 {
                     Console.WriteLine($"Остаток:{account.Balance}");
                     return;
                 }
-
-                else
-                    dateTime = ParseStringToDateTime(time);
-
+                if (!DateTime.TryParse(time, out DateTime dateTime))
+                    throw new Exception("Неверный формат ввода");
+                   
                 for (int i = 1; i < account.OperationHistory.Length; i++)
                 {
                     bool flag = false;
